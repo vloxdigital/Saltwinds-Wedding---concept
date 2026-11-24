@@ -29,10 +29,19 @@
      box-sizing: border-box;
 }
 
+*::selection {
+     background: var(--accent-color);
+     color: white;
+}
+
 body {
      margin: 0px;
      padding: 0px;
      background: var(--bg-color);
+}
+
+body::-webkit-scrollbar {
+     display: none;
 }
 
 body.off-scroll {
@@ -56,7 +65,7 @@ body.off-scroll {
 }
 
 .body-text {
-     font-family: var(--body-font-size);
+     font-family: var(--body-font-family);
      letter-spacing: 2px;
      font-size: var(--body-font-size);
      color: var(--ink-color);
@@ -98,6 +107,12 @@ body.off-scroll {
      width: 100%;
      background: var(--bg-color);
      height: var(--header-height);
+     z-index: 10;
+     transform: translateY(-100%);
+     transition: var(--animation-fast);
+}
+.header.appear {
+     transform: translateY(0%);
 }
 
 .header-container {
@@ -140,6 +155,14 @@ body.off-scroll {
      cursor: pointer;
 }
 
+.hover-scale-down {
+     transition: var(--animation-lazy);
+}
+
+.hover-scale-down:hover {
+     scale: 0.9;
+}
+
 .text-hover-accent {
      transition: var(--animation-fast);
      cursor: pointer;
@@ -155,6 +178,40 @@ body.off-scroll {
 
 .header-container .nav-btn {
      display: none;
+}
+
+
+.hero {
+     width: 100%;
+     height: 100vh;
+     background:
+          linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
+          url(imgs/hero/hero.jpg);
+     background-size: cover;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     --ink-color: white;
+}
+.hero-container {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+}
+.hero-container .cta {
+     margin-top: var(--space-lg);
+}
+.hero .headline {
+     font-weight: normal;
+     font-size: 72px;
+     line-height: 50px;
+}
+.hero .headline, .hero .sub-headline, .hero .body-text, .hero .eyebrow {
+     text-align: center;
+}
+.hero .body-text {
+     margin-top: var(--space-sm);
+     font-size: 16px;
 }
 
 @media (max-width: 800px) {
@@ -173,6 +230,7 @@ body.off-scroll {
           height: calc(100vh - var(--header-height));
           padding: 0px;
           display: none;
+          background: var(--bg-color);
      }
 
      .header-container .nav-screen ul {
@@ -227,5 +285,24 @@ body.off-scroll {
      .nav-btn.cross .bar-3 {
           transform: rotate(-30deg)translate(13.5px, -13.5px);
           height: 4px;
+     }
+
+     .hero {
+          background: 
+               linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+               url(imgs/hero/hero-mobile.jpg);
+          background-size: cover;
+          background-position-x: center;
+     }
+     .hero-container {
+          padding: 0px var(--space-lg);
+          align-items: flex-start;
+     }
+
+     .hero .headline {
+          font-size: 54px;
+     }
+     .hero .headline, .hero .body-text, .eyebrow {
+          text-align: left;
      }
 }
