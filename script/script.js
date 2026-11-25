@@ -23,3 +23,13 @@ body.addEventListener("mousemove", () => {
      }, 2000);
 
 })
+
+window.addEventListener("scroll", () => {
+     clearTimeout(hideTimer);
+     header.classList.add("appear");
+
+     hideTimer = setTimeout(() => {
+          header.classList.remove("appear");
+     }, 2000);
+
+})
