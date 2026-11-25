@@ -66,7 +66,7 @@ body.off-scroll {
 
 .body-text {
      font-family: var(--body-font-family);
-     letter-spacing: 2px;
+     letter-spacing: 1px;
      font-size: var(--body-font-size);
      color: var(--ink-color);
      margin: 0px;
@@ -292,6 +292,45 @@ body.off-scroll {
      color: var(--accent-color);
 }
 
+/* Problem */
+.problem {
+     padding: var(--space-xl) 0px;
+     width: 60%;
+     margin: 0 auto;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+}
+.problem-card-container {
+     display: grid;
+     grid-template-columns: repeat(3, 1fr);
+     gap: var(--space-md);
+     margin-top: var(--space-xl);
+}
+.problem-card {
+     padding: var(--space-md);
+     background: #e8e3dc;
+     padding: var(--space-lg);
+}
+.problem-card .sub-headline {
+     margin-bottom: var(--space-md);
+}
+
+.problem .headline {
+     text-align: center;
+}
+
+
+
+.problem-outro {
+     width: 100vw;
+     padding: var(--space-xxl);
+     background: var(--accent-color);
+     display: flex;
+     justify-content: center;
+}
+
 
 @media (max-width: 800px) {
      .mobile-disappear {
@@ -411,4 +450,25 @@ body.off-scroll {
           padding: var(--space-md);
      }
 
+     /* problems */
+     .problem {
+          width: 90%;
+     }
+     .problem .headline {
+          font-size: 48px;
+     }
+     .problem .body-text {
+          font-size: 16px;
+          width: 100%;
+     }
+     .problem-card-container {
+          grid-template-columns: 1fr;
+     }
+
+     .problem-outro .headline {
+          font-size: 72px;
+     }
+     .problem-outro {
+          padding: var(--space-lg);
+     }
 }
